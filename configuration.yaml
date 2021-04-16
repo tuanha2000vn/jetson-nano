@@ -1,0 +1,29 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+homeassistant:
+  allowlist_external_dirs:
+    - /config/www
+    - /media
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 9
+  unit_system: metric
+  time_zone: Asia/Ho_Chi_Minh
+  name:  JETSON NANO
+  customize: !include customize.yaml
+  external_url: !secret external_url
+  internal_url: !secret internal_url
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+camera: !include cameras.yaml
+group: !include groups.yaml
+image_processing: !include image_processings.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+sensor: !include sensors.yaml
+
+logger:
+  default: WARNING

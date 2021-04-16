@@ -1,0 +1,225 @@
+binary_sensor.fibaro_motion_30:
+  device_class: motion
+binary_sensor.0x00158d0002e236b4_contact:
+  friendly_name: Cửa C300 Xiaomi
+  device_class: garage_door
+binary_sensor.0x000d6ffffe671e20_contact:
+  friendly_name: Cửa C300
+  device_class: garage_door
+binary_sensor.0x00158d0002d46b5c_contact:
+  friendly_name: Cửa Outlander Xiaomi
+  device_class: garage_door
+binary_sensor.0x000d6ffffe67cd12_contact:
+  friendly_name: Cửa Outlander
+  device_class: garage_door
+binary_sensor.c300_motion:
+  friendly_name: Sân C300
+binary_sensor.outlander_motion:
+  friendly_name: Sân Outlander
+binary_sensor.0x00158d0002f1d1d2_occupancy:
+  friendly_name: Phòng C300
+binary_sensor.0x00158d000358b1a2_occupancy:
+  friendly_name: Phòng Outlander
+binary_sensor.0x00158d0001fa4321_occupancy:
+  friendly_name: Cầu Thang Dưới
+binary_sensor.0x086bd7fffeeec6ed_occupancy:
+  friendly_name: Cầu Thang Trên
+binary_sensor.0x086bd7fffecbf0be_occupancy:
+  friendly_name: Bếp Trái
+  device_class: motion
+binary_sensor.0x086bd7fffeeec4b0_occupancy:
+  device_class: motion
+  friendly_name: Bếp Phải
+binary_sensor.aeotec_motion_26:
+  device_class: motion
+binary_sensor.0x086bd7fffe01a077_smoke:
+  friendly_name: Báo khói
+binary_sensor.0x000d6ffffe65bda5_contact:
+  friendly_name: Cửa phòng làm việc
+  device_class: door
+binary_sensor.tuyatec_tqo2oqah_rh3001_a5bd65fe_ias_zone:
+  friendly_name: Cửa phòng làm việc
+  device_class: door
+binary_sensor.tuyatec_atnbjgt4_rh3040_77c8eefe_ias_zone:
+  friendly_name: Chuyển Động Phòng làm việc
+binary_sensor.tuyatec_atnbjgt4_rh3040_edc6eefe_ias_zone:
+  friendly_name: Phòng làm việc
+binary_sensor.0x086bd7fffe044cf1_smoke:
+  friendly_name: Báo khói
+binary_sensor.tyzb01_lgpxxutv_ts0205_f14c04fe_ias_zone:
+  friendly_name: Báo khói
+climate.office_ac:
+  friendly_name: Điều Hòa Phòng Làm Việc
+fan.living_room_ceiling_fan:
+  friendly_name: Quạt Trần Phòng Khách
+fan.xiaomi_smart_fan:
+  friendly_name: Quạt Đứng Xiaomi
+light.bedroom_2:
+  friendly_name: Đèn Phòng ngủ 2
+light.dining_table_light:
+  friendly_name: Đèn Bàn Ăn
+light.garage_light_1:
+  friendly_name: Đèn Nhà Xe 1
+light.garage_light_2:
+  friendly_name: Đèn Nhà Xe 2
+light.garage_light_3:
+  friendly_name: Đèn Nhà Xe 3
+light.kitchen_ceiling_light:
+  friendly_name: Đèn Trần Bếp
+light.kitchen_lightstrip:
+  friendly_name: Đèn led Bếp
+light.gateway_light_7c49eb891797:
+  friendly_name: Đèn Hub
+light.hue_iris:
+  friendly_name: Đèn Trang Trí
+light.sofa_light:
+  friendly_name: Đèn Sofa
+light.study_desk_light:
+  friendly_name: Đèn Bàn Học
+light.toilet_ambiance:
+  friendly_name: Đèn Nhà Vệ Sinh
+light.tv_light:
+  friendly_name: Đèn TV
+light.warehouse_ambiance:
+  friendly_name: Đèn Nhà Kho
+light.tree_light:
+  friendly_name: Đèn Cây
+light.stairway_2nd:
+  friendly_name: Đèn Cầu Thang
+person.hoa_nguyen:
+  entity_picture: /local/profiles/hoa_nguyen.jpg
+person.hoang_anh_tuan:
+  entity_picture: /local/profiles/hoang_anh_tuan.jpg
+person.hoang_anh_huy:
+  entity_picture: /local/profiles/hoang_anh_huy.jpg
+person.tran_hong_linh:
+  entity_picture: /local/profiles/tran_hong_linh.jpg
+media_player.denon_avr_x3000:
+  friendly_name: Dàn âm thanh Denon
+media_player.living_room:
+  friendly_name: Apple TV
+media_player.phong_khach:
+  friendly_name: Apple TV
+switch.sonoff_1000446e44:
+  friendly_name: Đèn Phòng ngủ 2
+  icon: mdi:power-socket-eu
+sensor.fibaro_lux_32:
+  icon: mdi:brightness-5
+sensor.0x00158d0002e98f27_humidity:
+  friendly_name: Độ Ẩm Ngoài Sân
+  icon: mdi:water-percent
+sensor.lumi_lumi_sensor_motion_aq2_2143fa01_illuminance:
+  friendly_name: Độ Sáng Nhà Để Xe
+  icon: mdi:brightness-5
+sensor.0x00158d0002e98f27_pressure:
+  friendly_name: Áp Suất Không Khí
+sensor.0x00158d0002e98f27_temperature:
+  friendly_name: Nhiệt Độ Ngoài Sân
+sensor.aeotec_humidity_29:
+  friendly_name: Độ ẩm Aeotec
+  icon: mdi:water-percent
+sensor.0x000d6ffffe68d35a_temperature:
+  friendly_name: Nhiệt Độ Tầng 4
+sensor.tuyatec_haoiuwzy_rh3052_5ad368fe_temperature:
+  friendly_name: Nhiệt Độ Tầng 4
+sensor.0x000d6ffffe68d35a_humidity:
+  friendly_name: Độ ẩm Tầng 4
+  icon: mdi:water-percent
+sensor.tuyatec_haoiuwzy_rh3052_5ad368fe_humidity:
+  friendly_name: Độ ẩm Tầng 4
+  icon: mdi:water-percent
+sensor.aeotec_lux_28:
+  icon: mdi:brightness-5
+sensor.0x000d6ffffe6ecdee_humidity:
+  friendly_name: Độ Ẩm Trong Nhà
+sensor.0x000d6ffffe6ecdee_temperature:
+  friendly_name: Nhiệt Độ Trong Nhà
+switch.fibaro_motion_30:
+  icon: mdi:power
+switch.living_room_power_strip:
+  icon: mdi:power-socket-eu
+  device_class: outlet
+switch.aeotec_motion_26:
+  icon: mdi:power
+switch.socket_sonoff_s20:
+  friendly_name: Ổ Cắm Sonoff S20
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.xiaomi_miio_switch:
+  friendly_name: Ổ Cắm Xiaomi Power Strip
+  device_class: outlet
+  icon: mdi:power-socket-eu
+light.c300_2nd:
+  icon: mdi:power
+  friendly_name: C300 2
+light.c300_3rd:
+  icon: mdi:power
+  friendly_name: C300 3
+light.outlander_2nd:
+  friendly_name: Outlander 2
+  icon: mdi:power
+light.outlander_3rd:
+  friendly_name: Outlander 3
+  icon: mdi:power
+light.sonoff_01minizb_aed8b0fe_on_off:
+  friendly_name: Công Tắc ZBMINI
+  device_class: outlet
+  icon: mdi:power
+light.sonoff_01minizb_b923b7fe_on_off:
+  friendly_name: Đèn Phòng Thay Đồ
+  device_class: outlet
+  icon: mdi:lightbulb
+switch.0x804b50fffeb723b9:
+  friendly_name: Đèn Phòng Thay Đồ
+  device_class: outlet
+  icon: mdi:lightbulb
+switch.0x00158d00024f2961:
+  friendly_name: Ổ Cắm Xiaomi Zigbee
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.lumi_lumi_plug_61294f02_on_off:
+  friendly_name: Ổ Cắm Xiaomi Zigbee
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.tuya_neo_coolcam_10a:
+  friendly_name: Ổ Cắm Tuya 10a
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.lumi_lumi_ctrl_ln2_aq1_2969cb02_on_off:
+  friendly_name: Công Tắc Aqara Trái
+  device_class: outlet
+  icon: mdi:power
+switch.lumi_lumi_ctrl_ln2_aq1_2969cb02_on_off_2:
+  friendly_name: Công Tắc Aqara Phải
+  device_class: outlet
+  icon: mdi:power
+switch.0x00124b001d8b68a9:
+  friendly_name: Ổ Cắm SA-003-1
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.ewelink_sa_003_zigbee_a9688b1d_on_off:
+  friendly_name: Ổ Cắm SA-003-1
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.0x00124b001f9848ff:
+  friendly_name: Ổ Cắm SA-003-2
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.ewelink_sa_003_zigbee_ff48981f_on_off:
+  friendly_name: Ổ Cắm SA-003-2
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.o_cam_waga_1:
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.o_cam_waga_2:
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.o_cam_waga_3:
+  device_class: outlet
+  icon: mdi:power-socket-eu
+switch.o_cam_waga_4:
+  device_class: outlet
+  icon: mdi:power-socket-eu
+vacuum.xiaomi_vacuum_cleaner:
+  friendly_name: Máy Hút Bụi Xiaomi

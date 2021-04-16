@@ -1,0 +1,51 @@
+# - alias: "deepstack.scan_completed"
+#   mode: parallel
+#   trigger:
+#     - platform: event
+#       event_type: deepstack.scan_completed
+#   condition: []
+#   action:
+#     - service: system_log.write
+#       data:
+#         level: info
+#         message: "{{ now().strftime('%S.%f') [:-4] }} deepstack.scan_completed {{ trigger.event.data.entity_id }}"
+#     - service: image_processing.scan
+#       data_template:
+#         entity_id: >
+#           {% if trigger.event.data.entity_id == "camera_1" %}
+#             image_processing.camera_2
+#           {% elif trigger.event.data.entity_id == "camera_2" %}
+#             image_processing.camera_5
+#           {% elif trigger.event.data.entity_id == "camera_5" %}
+#             image_processing.camera_6
+#           {% elif trigger.event.data.entity_id == "camera_6" %}
+#             image_processing.e43460774
+#           {% elif trigger.event.data.entity_id == "e43460774" %}
+#             image_processing.e73655823
+#           {% else %}
+#             image_processing.camera_1
+#           {% endif %}
+
+- alias: "deepstack.time_based_trigger"
+  mode: parallel
+  trigger:
+    - platform: time_pattern
+      seconds: "/1"
+  condition: []
+  action:
+    - condition: numeric_state
+      entity_id: sensor.processor_use_percent
+      below: 80
+    - service: system_log.write
+      data:
+        level: warning
+        message: "{{ now().strftime('%S.%f') [:-4] }} Start Scannig on Processor Use Percent  {{ states.sensor.processor_use_percent.state }}"
+    - service: image_processing.scan
+      target:
+        entity_id:
+          - image_processing.camera_1
+          - image_processing.camera_2
+          - image_processing.camera_5
+          - image_processing.camera_6
+          - image_processing.e43460774
+          - image_processing.e73655823
