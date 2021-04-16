@@ -86,7 +86,7 @@ https://www.youtube.com/watch?v=vMdpLiAB9dI
       below: 80
     - service: system_log.write
       data:
-        level: warning
+        level: info
         message: "{{ now().strftime('%S.%f') [:-4] }} Start Scannig on Processor Use Percent  {{ states.sensor.processor_use_percent.state }}"
     - service: image_processing.scan
       target:
@@ -108,6 +108,6 @@ https://www.youtube.com/watch?v=vMdpLiAB9dI
 ```
     - service: system_log.write
       data:
-        level: warning
+        level: info
         message: "{{ now().strftime('%S.%f') [:-4] }} Start Scannig on Processor Use Percent  {{ states.sensor.processor_use_percent.state }}"
 ```
