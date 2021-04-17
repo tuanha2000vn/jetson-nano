@@ -21,6 +21,7 @@ https://www.youtube.com/watch?v=53rRMr1IpWs
 Mở Terminal của Jetson Nano và chạy các dòng lệnh này
 ```
 sudo -i
+apt-get update && apt-get upgrade -y && apt-get autoremove -y
 apt-get install software-properties-common
 add-apt-repository universe
 apt-get update
