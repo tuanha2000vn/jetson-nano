@@ -1,36 +1,34 @@
-# - alias: "deepstack.scan_completed"
-#   mode: parallel
-#   trigger:
-#     - platform: event
-#       event_type: deepstack.scan_completed
-#   condition: []
-#   action:
-#     - service: system_log.write
-#       data:
-#         level: info
-#         message: "{{ now().strftime('%S.%f') [:-4] }} deepstack.scan_completed {{ trigger.event.data.entity_id }}"
-#     - service: image_processing.scan
-#       data_template:
-#         entity_id: >
-#           {% if trigger.event.data.entity_id == "camera_1" %}
-#             image_processing.camera_2
-#           {% elif trigger.event.data.entity_id == "camera_2" %}
-#             image_processing.camera_5
-#           {% elif trigger.event.data.entity_id == "camera_5" %}
-#             image_processing.camera_6
-#           {% elif trigger.event.data.entity_id == "camera_6" %}
-#             image_processing.e43460774
-#           {% elif trigger.event.data.entity_id == "e43460774" %}
-#             image_processing.e73655823
-#           {% else %}
-#             image_processing.camera_1
-#           {% endif %}
-
-- alias: "deepstack.time_based_trigger"
+- id: "1618637076000"
+  alias: DeepStack Sequence
+  description: Scan next image on deepStack scan completed
   mode: parallel
   trigger:
+    - platform: event
+      event_type: deepstack.object_scanned
+  condition: []
+  action:
+    - service: image_processing.scan
+      data_template:
+        entity_id:
+          "{% if trigger.event.data.entity_id == \"camera_1\" %}\n  image_processing.camera_2\n\
+          {% elif trigger.event.data.entity_id == \"camera_2\" %}\n  image_processing.camera_5\n\
+          {% elif trigger.event.data.entity_id == \"camera_5\" %}\n  image_processing.camera_6\n\
+          {% elif trigger.event.data.entity_id == \"camera_6\" %}\n  image_processing.e43460774\n\
+          {% elif trigger.event.data.entity_id == \"e43460774\" %}\n  image_processing.e73655823\n\
+          {% else %}\n  image_processing.camera_1\n{% endif %}"
+    - service: system_log.write
+      data:
+        level: warning
+        message:
+          "{{ now().strftime('%S.%f') [:-4] }} deepstack.object_scanned {{
+          trigger.event.data.entity_id }}"
+- id: "1618637076001"
+  alias: DeepStack Time Base
+  description: Scan all image on time base
+  mode: single
+  trigger:
     - platform: time_pattern
-      seconds: "/1"
+      seconds: /1
   condition: []
   action:
     - condition: numeric_state
@@ -38,8 +36,10 @@
       below: 80
     - service: system_log.write
       data:
-        level: info
-        message: "{{ now().strftime('%S.%f') [:-4] }} Start Scannig on Processor Use Percent  {{ states.sensor.processor_use_percent.state }}"
+        level: warning
+        message:
+          "{{ now().strftime('%S.%f') [:-4] }} Start Scannig on Processor Use
+          Percent  {{ states.sensor.processor_use_percent.state }}"
     - service: image_processing.scan
       target:
         entity_id:
@@ -49,3 +49,32 @@
           - image_processing.camera_6
           - image_processing.e43460774
           - image_processing.e73655823
+- id: "1618638647124"
+  alias: DeepStack Time Base Off
+  description: Turn of DeepStack Time Base when DeepStack Sequence On
+  trigger:
+    - platform: state
+      entity_id: automation.deepstack_sequence
+      to: "on"
+  condition: []
+  action:
+    - service: homeassistant.turn_off
+      target:
+        entity_id: automation.deepstack_time_base
+    - service: image_processing.scan
+      target:
+        entity_id: image_processing.camera_1
+  mode: single
+- id: "1618638647125"
+  alias: DeepStack Sequence Off
+  description: Turn of DeepStack Sequence when DeepStack Time Base On
+  trigger:
+    - platform: state
+      entity_id: automation.deepstack_time_base
+      to: "on"
+  condition: []
+  action:
+    - service: homeassistant.turn_off
+      target:
+        entity_id: automation.deepstack_sequence
+  mode: single

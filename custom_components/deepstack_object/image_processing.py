@@ -346,6 +346,8 @@ class ObjectClassifyEntity(ImageProcessingEntity):
         self._targets_found = []
         self._summary = {}
         saved_image_path = None
+        
+        self.hass.bus.fire(EVENT_OBJECT_SCANNED, {"entity_id": self._name})
 
         try:
             predictions = self._dsobject.detect(image)
@@ -399,7 +401,6 @@ class ObjectClassifyEntity(ImageProcessingEntity):
                 target_event_data[SAVED_FILE] = saved_image_path
             self.hass.bus.fire(EVENT_OBJECT_DETECTED, target_event_data)
     
-        self.hass.bus.fire(EVENT_OBJECT_SCANNED, {"entity_id": self._name})
     
     @property
     def camera_entity(self):

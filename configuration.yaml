@@ -9,7 +9,7 @@ homeassistant:
   elevation: 9
   unit_system: metric
   time_zone: Asia/Ho_Chi_Minh
-  name:  JETSON NANO
+  name: JETSON NANO
   customize: !include customize.yaml
   external_url: !secret external_url
   internal_url: !secret internal_url
@@ -27,3 +27,5 @@ sensor: !include sensors.yaml
 
 logger:
   default: WARNING
+
+stream:
