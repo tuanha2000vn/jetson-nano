@@ -25,6 +25,39 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 sensor: !include sensors.yaml
 
+ffmpeg:
+
+input_boolean:
+  scan_camera_1:
+    name: Scan Camera 1
+    icon: mdi:webcam
+  scan_camera_2:
+    name: Scan Camera 2
+    icon: mdi:webcam
+  scan_camera_3:
+    name: Scan Camera 3
+    icon: mdi:webcam
+  scan_camera_4:
+    name: Scan Camera 4
+    icon: mdi:webcam
+  scan_camera_5:
+    name: Scan Camera 5
+    icon: mdi:webcam
+  scan_camera_6:
+    name: Scan Camera 6
+    icon: mdi:webcam
+  scan_e43460774:
+    name: Scan E43460774
+    icon: mdi:webcam
+  scan_e73655823:
+    name: Scan E73655823
+    icon: mdi:webcam
+
+input_text:
+  scan_start_time:
+    name: Scan Start Time
+  scan_duration:
+    name: Scan Duration
 logger:
   default: WARNING
 

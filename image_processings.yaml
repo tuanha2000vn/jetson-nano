@@ -17,7 +17,7 @@
     - target: person
       confidence: 50
   source:
-    - entity_id: camera.camera_1
+    - entity_id: camera.camera_1_low
       name: camera_1
 
 - platform: deepstack_object
@@ -39,7 +39,7 @@
     - target: person
       confidence: 50
   source:
-    - entity_id: camera.camera_2
+    - entity_id: camera.camera_2_low
       name: camera_2
 
 - platform: deepstack_object
@@ -61,7 +61,7 @@
     - target: person
       confidence: 50
   source:
-    - entity_id: camera.camera_5
+    - entity_id: camera.camera_5_low
       name: camera_5
 
 - platform: deepstack_object
@@ -83,7 +83,7 @@
     - target: person
       confidence: 50
   source:
-    - entity_id: camera.camera_6
+    - entity_id: camera.camera_6_low
       name: camera_6
 
 - platform: deepstack_object
@@ -105,7 +105,7 @@
     - target: person
       confidence: 50
   source:
-    - entity_id: camera.e43460774
+    - entity_id: camera.e43460774_low
       name: e43460774
 
 - platform: deepstack_object
@@ -127,5 +127,5 @@
     - target: person
       confidence: 50
   source:
-    - entity_id: camera.e73655823
+    - entity_id: camera.e73655823_low
       name: e73655823

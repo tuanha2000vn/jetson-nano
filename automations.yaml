@@ -1,46 +1,24 @@
-- id: "1618637076000"
-  alias: DeepStack Sequence
-  description: Scan next image on deepStack scan completed
-  mode: parallel
+- id: "1618637076003"
+  alias: DeepStack Scan Cameras
+  description: Scan All Camera
+  mode: restart
+  variables:
+    start_scan_time: now()
   trigger:
-    - platform: event
-      event_type: deepstack.object_scanned
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: automation.deepstack_scan_cameras
+      to: "on"
   condition: []
   action:
-    - service: image_processing.scan
-      data_template:
-        entity_id:
-          "{% if trigger.event.data.entity_id == \"camera_1\" %}\n  image_processing.camera_2\n\
-          {% elif trigger.event.data.entity_id == \"camera_2\" %}\n  image_processing.camera_5\n\
-          {% elif trigger.event.data.entity_id == \"camera_5\" %}\n  image_processing.camera_6\n\
-          {% elif trigger.event.data.entity_id == \"camera_6\" %}\n  image_processing.e43460774\n\
-          {% elif trigger.event.data.entity_id == \"e43460774\" %}\n  image_processing.e73655823\n\
-          {% else %}\n  image_processing.camera_1\n{% endif %}"
-    - service: system_log.write
+    - service: input_text.set_value
       data:
-        level: warning
-        message:
-          "{{ now().strftime('%S.%f') [:-4] }} deepstack.object_scanned {{
-          trigger.event.data.entity_id }}"
-- id: "1618637076001"
-  alias: DeepStack Time Base
-  description: Scan all image on time base
-  mode: single
-  trigger:
-    - platform: time_pattern
-      seconds: /1
-  condition: []
-  action:
-    - condition: numeric_state
-      entity_id: sensor.processor_use_percent
-      below: 80
-    - service: system_log.write
-      data:
-        level: warning
-        message:
-          "{{ now().strftime('%S.%f') [:-4] }} Start Scannig on Processor Use
-          Percent  {{ states.sensor.processor_use_percent.state }}"
+        value: "{{ now() }}"
+      target:
+        entity_id: input_text.scan_start_time
     - service: image_processing.scan
+      data: {}
       target:
         entity_id:
           - image_processing.camera_1
@@ -49,32 +27,15 @@
           - image_processing.camera_6
           - image_processing.e43460774
           - image_processing.e73655823
-- id: "1618638647124"
-  alias: DeepStack Time Base Off
-  description: Turn of DeepStack Time Base when DeepStack Sequence On
-  trigger:
-    - platform: state
-      entity_id: automation.deepstack_sequence
-      to: "on"
-  condition: []
-  action:
-    - service: homeassistant.turn_off
+    - service: input_text.set_value
+      data:
+        value: "{{ (as_timestamp(now()) - as_timestamp(states.input_text.scan_start_time.state)) | float }} "
       target:
-        entity_id: automation.deepstack_time_base
-    - service: image_processing.scan
+        entity_id: input_text.scan_duration
+    - service: system_log.write
+      data:
+        level: warning
+        message: "Scan Take  {{ states.input_text.scan_duration.state | round(2) }} seconds"
+    - service: automation.trigger
       target:
-        entity_id: image_processing.camera_1
-  mode: single
-- id: "1618638647125"
-  alias: DeepStack Sequence Off
-  description: Turn of DeepStack Sequence when DeepStack Time Base On
-  trigger:
-    - platform: state
-      entity_id: automation.deepstack_time_base
-      to: "on"
-  condition: []
-  action:
-    - service: homeassistant.turn_off
-      target:
-        entity_id: automation.deepstack_sequence
-  mode: single
+        entity_id: automation.deepstack_scan_cameras
