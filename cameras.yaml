@@ -1,4 +1,3 @@
-
 - platform: ffmpeg
   name: Camera 1
   input: !secret camera_input_1
@@ -7,9 +6,9 @@
   name: Camera 1 Low
   input: !secret camera_input_1_low
 
-- platform: local_file
-  name: Camera 1 Lastest
-  file_path: /config/www/object/camera_1_latest.jpg
+# - platform: local_file
+#   name: Camera 1 Lastest
+#   file_path: /config/www/object/camera_1_latest.jpg
 
 - platform: ffmpeg
   name: Camera 2
@@ -19,9 +18,9 @@
   name: Camera 2  Low
   input: !secret camera_input_2_low
 
-- platform: local_file
-  name: Camera 2 Lastest
-  file_path: /config/www/object/camera_2_latest.jpg
+# - platform: local_file
+#   name: Camera 2 Lastest
+#   file_path: /config/www/object/camera_2_latest.jpg
 
 - platform: ffmpeg
   name: Camera 3
@@ -31,22 +30,22 @@
   name: Camera 3 Low
   input: !secret camera_input_3_low
 
-- platform: local_file
-  name: Camera 3 Lastest
-  file_path: /config/www/object/camera_3_latest.jpg
+# - platform: local_file
+#   name: Camera 3 Lastest
+#   file_path: /config/www/object/camera_3_latest.jpg
 
 - platform: ffmpeg
   name: Camera 4
   input: !secret camera_input_4
-  
+
 - platform: ffmpeg
   name: Camera 4 Low
   input: !secret camera_input_4_low
 
-- platform: local_file
-  name: Camera 4 Lastest
-  file_path: /config/www/object/camera_4_latest.jpg
-  
+# - platform: local_file
+#   name: Camera 4 Lastest
+#   file_path: /config/www/object/camera_4_latest.jpg
+
 - platform: ffmpeg
   name: Camera 5
   input: !secret camera_input_5
@@ -55,9 +54,9 @@
   name: Camera 5 Low
   input: !secret camera_input_5_low
 
-- platform: local_file
-  name: Camera 5 Lastest
-  file_path: /config/www/object/camera_5_latest.jpg
+# - platform: local_file
+#   name: Camera 5 Lastest
+#   file_path: /config/www/object/camera_5_latest.jpg
 
 - platform: ffmpeg
   name: Camera 6
@@ -67,9 +66,9 @@
   name: Camera 6 Low
   input: !secret camera_input_6_low
 
-- platform: local_file
-  name: Camera 6 Lastest
-  file_path: /config/www/object/camera_6_latest.jpg
+# - platform: local_file
+#   name: Camera 6 Lastest
+#   file_path: /config/www/object/camera_6_latest.jpg
 
 - platform: ffmpeg
   name: E43460774
@@ -79,9 +78,9 @@
   name: E43460774 Low
   input: !secret camera_input_e43460774_low
 
-- platform: local_file
-  name: Camera e43460774 Lastest
-  file_path: /config/www/object/e43460774_latest.jpg
+# - platform: local_file
+#   name: Camera e43460774 Lastest
+#   file_path: /config/www/object/e43460774_latest.jpg
 
 - platform: ffmpeg
   name: E73655823
@@ -90,7 +89,6 @@
 - platform: ffmpeg
   name: E73655823 Low
   input: !secret camera_input_e73655823_low
-  
-- platform: local_file
-  name: Camera e73655823 Lastest
-  file_path: /config/www/object/e73655823_latest.jpg
+# - platform: local_file
+#   name: Camera e73655823 Lastest
+#   file_path: /config/www/object/e73655823_latest.jpg
