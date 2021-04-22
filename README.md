@@ -144,8 +144,6 @@ sudo rm -rf /usr/sbin/hassio-supervisor
 sudo rm -rf /usr/sbin/hassio-apparmor
 ```
 
-Now delete the remaining docker images like you always do.
-
 If you want to delete your Home Assistant config files,
 Do the following, but be carefull! Your config is lost forever:
 
