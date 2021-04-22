@@ -112,3 +112,53 @@ https://www.youtube.com/watch?v=vMdpLiAB9dI
         level: info
         message: "{{ now().strftime('%S.%f') [:-4] }} Start Scannig on Processor Use Percent  {{ states.sensor.processor_use_percent.state }}"
 ```
+
+<br>
+<br>
+
+# RESET DOCKER
+
+Delete Home Assistant
+
+stop services
+```
+sudo systemctl stop hassio-supervisor.service
+sudo systemctl stop hassio-apparmor.service
+```
+
+disable services
+```
+sudo systemctl disable hassio-supervisor.service
+sudo systemctl disable hassio-apparmor.service
+```
+
+remove services
+```
+sudo rm -rf /etc/systemd/system/hassio-supervisor.service
+sudo rm -rf /etc/systemd/system/hassio-apparmor.service
+```
+
+removing hassio folders (except the config folder)
+```
+sudo rm -rf /usr/sbin/hassio-supervisor
+sudo rm -rf /usr/sbin/hassio-apparmor
+```
+
+Now delete the remaining docker images like you always do.
+
+If you want to delete your Home Assistant config files,
+Do the following, but be carefull! Your config is lost forever:
+
+```
+sudo rm -rf /usr/share/hassio/
+```
+
+To delete all containers including its volumes use,
+```
+docker rm -vf $(docker ps -a -q)
+```
+
+To delete all the images,
+```
+docker rmi -f $(docker images -a -q)
+```
